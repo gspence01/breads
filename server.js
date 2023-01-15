@@ -5,6 +5,11 @@ const express = require('express')
 require('dotenv').config()
 const app = express()
 
+//MIDDLEWARE
+app.set('views', __dirname+'/views')
+app.set('view engine', 'jsx')
+app.engine('jsx', require('express-react-views').createEngine())
+
 //routes
 app.get('/', (req, res)=>{
     res.send('welcome to a cool app')
